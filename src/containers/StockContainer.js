@@ -3,12 +3,16 @@ import Stock from '../components/Stock'
 
 class StockContainer extends Component {
 
+  createCards = () => {
+   return this.props.stocks.map((stock,index) => <Stock key={index} stock={stock} onHandleClick={this.props.onStockClick} />)
+  }
+
   render() {
     return (
       <div>
         <h2>Stocks</h2>
         {
-          //render the list of stocks here
+          this.createCards()
         }
       </div>
     );
